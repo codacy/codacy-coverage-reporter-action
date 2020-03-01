@@ -1,0 +1,14 @@
+# action.yml
+name: "codacy-coverage-reporter"
+description: "Multi-language coverage reporter for Codacy"
+branding:
+  icon: 'check'
+  color: 'gray-dark'
+inputs:
+  project-token:
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - "${{ inputs.project-token }}"
