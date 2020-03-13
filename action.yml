@@ -1,5 +1,5 @@
 # action.yml
-name: "codacy-coverage-reporter"
+name: "Codacy Coverage Reporter"
 description: "Multi-language coverage reporter for Codacy"
 branding:
   icon: 'check'
