@@ -1,11 +1,11 @@
 name: "Publish GitHub Action"
 
-on:
-  push:
-    branches:
-      - master
-    tags:
-      - "*"
+on: ["push"]
+# push:
+#   branches:
+#     - master
+#   tags:
+#     - "*"
 
 jobs:
   publish:

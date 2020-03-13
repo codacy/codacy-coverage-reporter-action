@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export CODACY_PROJECT_TOKEN=$1
-bash <(curl -Ls https://coverage.codacy.com/get.sh)
+wget -qO - https://coverage.codacy.com/get.sh | sh

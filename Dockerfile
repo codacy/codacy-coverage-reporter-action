@@ -1,6 +1,4 @@
-FROM frolvlad/alpine-glibc:alpine-3.10
-
-RUN apk add --no-cache bash curl
+FROM alpine:3.11
 
 COPY entrypoint.sh /entrypoint.sh
 
