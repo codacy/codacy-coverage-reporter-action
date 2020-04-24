@@ -25,6 +25,7 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          # args: 'report -l Java -r report1.xml --partial'
 ```
 
 ## Workflow options
@@ -34,3 +35,4 @@ Change these options in the workflow `.yml` file to meet your GitHub project nee
 | Setting         | Description                         | Default value                         |
 | --------------- | ----------------------------------- | ------------------------------------- |
 | `project-token` | The project API token               | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
+| `args`          | Optional arguments for the script   | ``                                    |

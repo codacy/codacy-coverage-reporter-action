@@ -6,9 +6,15 @@ branding:
   color: 'gray-dark'
 inputs:
   project-token:
+    description: 'Specify this project token'
     required: true
+  args:
+    description: 'Additional arguments for the script'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - "${{ inputs.project-token }}"
+    - "${{ inputs.args }}"
