@@ -32,7 +32,7 @@ jobs:
 
 Change these options in the workflow `.yml` file to meet your GitHub project needs.
 
-| Setting           | Description                                       | Default value                         |
-| ---------------   | ------------------------------------------------- | ------------------------------------- |
-| `project-token`   | The project API token                             | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
-| `coverage-reports`| Optional Comma separated list of reports to send  | `''`                                    |
+| Setting            | Description                                      | Default value                         |
+| ------------------ | ------------------------------------------------ | ------------------------------------- |
+| `project-token`    | The project API token                            | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
+| `coverage-reports` | Optional Comma separated list of reports to send | `''`                                  |
