@@ -22,15 +22,17 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run codacy-coverage-reporter
-        uses: mrfyda/codacy-coverage-reporter-action@master
+        uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: cobertura.xml
 ```
 
 ## Workflow options
 
 Change these options in the workflow `.yml` file to meet your GitHub project needs.
 
-| Setting         | Description                         | Default value                         |
-| --------------- | ----------------------------------- | ------------------------------------- |
-| `project-token` | The project API token               | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
+| Setting            | Description                                      | Default value                         |
+| ------------------ | ------------------------------------------------ | ------------------------------------- |
+| `project-token`    | The project API token                            | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
+| `coverage-reports` | Optional Comma separated list of reports to send | `''`                                  |
