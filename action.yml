@@ -1,14 +1,20 @@
 # action.yml
-name: "Codacy Coverage Reporter"
-description: "Multi-language coverage reporter for Codacy"
+name: 'Codacy Coverage Reporter'
+description: 'Multi-language coverage reporter for Codacy'
 branding:
   icon: 'check'
   color: 'gray-dark'
 inputs:
   project-token:
+    description: 'Project token for the Codacy project you want to send coverage information'
     required: true
+  coverage-reports:
+    description: 'Optional comma separated list of coverage reports to send to Codacy'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - "${{ inputs.project-token }}"
+    - ${{ inputs.project-token }}
+    - ${{ inputs.coverage-reports }}
