@@ -36,3 +36,14 @@ Change these options in the workflow `.yml` file to meet your GitHub project nee
 | ------------------ | ------------------------------------------------ | ------------------------------------- |
 | `project-token`    | The project API token                            | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
 | `coverage-reports` | Optional Comma separated list of reports to send | `''`                                  |
+
+
+## Path Map
+
+Internally paths are mapped to volumes.
+
+
+| Original Path             | Volume Path           | Example                                                                     |
+| ------------------------- | --------------------  | --------------------------------------------------------------------------  | 
+| `${{ github.workspace }}` | /github/workspace/    | `${{ github.workspace }}/cobertura.xml` : `/github/workspace/cobertura.xml` | 
+| `${{ github.home }}`      | /github/home/         | `${{ github.home }}/cobertura.xml` : `/github/home/cobertura.xml`           |
