@@ -43,5 +43,5 @@ Internally paths are mapped to volumes.
 
 | Original Path             | Volume Path           | Example                                                                     |
 | ------------------------- | --------------------  | --------------------------------------------------------------------------  | 
-| `${{ github.workspace }}` | `/github/workspace/`  | `${{ github.workspace }}/cobertura.xml` : `/github/workspace/cobertura.xml` | 
-| `${{ github.home }}`      | `/github/home/`       | `${{ github.home }}/cobertura.xml` : `/github/home/cobertura.xml`           |
+| ${{ github.workspace }}   | /github/workspace/    | `${{ github.workspace }}/cobertura.xml` : `/github/workspace/cobertura.xml` | 
+| ${{ github.home }}        | /github/home/         | `${{ github.home }}/cobertura.xml` : `/github/home/cobertura.xml`           |
