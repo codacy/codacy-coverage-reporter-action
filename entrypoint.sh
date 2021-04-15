@@ -15,4 +15,4 @@ do
 done
 
 bash <(curl -Ls https://coverage.codacy.com/get.sh) report $@ $params --partial &&\
-bash <(curl -Ls https://coverage.codacy.com/get.sh) final
+bash <(curl -Ls https://coverage.codacy.com/get.sh) final $@
