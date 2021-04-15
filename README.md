@@ -25,6 +25,8 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          # or
+          # api-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: cobertura.xml
 ```
 
@@ -34,5 +36,6 @@ Change these options in the workflow `.yml` file to meet your GitHub project nee
 
 | Setting            | Description                                      | Default value                         |
 | ------------------ | ------------------------------------------------ | ------------------------------------- |
+| `api-token`        | An account API token                             | `${{ secrets.CODACY_API_TOKEN }}`     |
 | `project-token`    | The project API token                            | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
 | `coverage-reports` | Optional Comma separated list of reports to send | `''`                                  |

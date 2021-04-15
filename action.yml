@@ -6,15 +6,28 @@ branding:
   color: 'gray-dark'
 inputs:
   project-token:
-    description: 'Project token for the Codacy project you want to send coverage information'
-    required: true
+    required: false
+    description: "API project token to retrieve your remote Codacy configuration for the project being analyzed"
+  api-token:
+    required: false
+    description: "API account token to retrieve your remote Codacy configuration for the project being analyzed"
   coverage-reports:
     description: 'Optional comma separated list of coverage reports to send to Codacy'
     required: false
     default: ''
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.project-token }}
-    - ${{ inputs.coverage-reports }}
+  using: "composite"
+  steps:
+    - name: "Set Repository Variables"
+      shell: bash
+      run: |
+        echo "ORGANIZATION_PROVIDER=$(if [[ $GITHUB_SERVER_URL == "https://github.com" ]]; then echo "gh"; else echo "ghe"; fi)" >> $GITHUB_ENV
+        echo "OWNER_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 1)" >> $GITHUB_ENV
+        echo "REPOSITORY_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)" >> $GITHUB_ENV
+    - name: "Run coverage-reporter"
+      shell: bash
+      run: |
+        if [ -n "${{ inputs.coverage-reports }}" ]; then export COVERAGE_REPORTS="${{ inputs.coverage-reports }}"; fi
+        ./entrypoint.sh \
+          $(if [ -n "${{ inputs.api-token }}" ]; then echo "--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi) \
+          $(if [ -n "${{ inputs.project-token }}" ]; then echo "--project-token ${{ inputs.project-token }}"; fi)
