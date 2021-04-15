@@ -1,8 +1,7 @@
 #!/bin/bash
 
-export CODACY_PROJECT_TOKEN=$1
 # comma separated list of report files
-report_list=$2
+report_list=$COVERAGE_REPORTS
 
 IFS=','
 report_array=$report_list
@@ -15,5 +14,5 @@ do
     fi
 done
 
-bash <(curl -Ls https://coverage.codacy.com/get.sh) report $params --partial &&\
+bash <(curl -Ls https://coverage.codacy.com/get.sh) report $@ $params --partial &&\
 bash <(curl -Ls https://coverage.codacy.com/get.sh) final
