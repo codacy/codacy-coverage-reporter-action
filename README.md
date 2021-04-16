@@ -22,13 +22,15 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@master
+        uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           # or
           # api-token: ${{ secrets.CODACY_API_TOKEN }}
           coverage-reports: cobertura.xml
 ```
+
+> Get the latest version from the [Releases page](https://github.com/codacy/codacy-coverage-reporter-action/releases).
 
 ## Workflow options
 
