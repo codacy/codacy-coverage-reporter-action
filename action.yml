@@ -1,0 +1,52 @@
+# action.yml
+name: 'Codacy Coverage Reporter'
+description: 'Multi-language coverage reporter for Codacy'
+branding:
+  icon: 'check'
+  color: 'gray-dark'
+inputs:
+  project-token:
+    required: false
+    description: "API project token to retrieve your remote Codacy configuration for the project being analyzed"
+  api-token:
+    required: false
+    description: "API account token to retrieve your remote Codacy configuration for the project being analyzed"
+  coverage-reports:
+    description: 'Optional comma separated list of coverage reports to send to Codacy'
+    required: false
+    default: ''
+runs:
+  using: "composite"
+  steps:
+    - name: "Set Repository Variables"
+      shell: bash
+      run: |
+        echo "ORGANIZATION_PROVIDER=$(if [[ $GITHUB_SERVER_URL == "https://github.com" ]]; then echo "gh"; else echo "ghe"; fi)" >> $GITHUB_ENV
+        echo "OWNER_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 1)" >> $GITHUB_ENV
+        echo "REPOSITORY_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)" >> $GITHUB_ENV
+    - name: "Run coverage-reporter"
+      shell: bash
+      run: |
+        set -eux
+
+        report_list=''
+        # comma separated list of report files
+        if [ -n "${{ inputs.coverage-reports }}" ]; then report_list="${{ inputs.coverage-reports }}"; fi
+
+        IFS=','
+        report_array=$report_list
+        params=''
+        for report in $report_array
+        do
+            if [ ! -z "$report" ]
+            then
+                params="$params -r $report"
+            fi
+        done
+
+        auth=''
+        if [ -n "${{ inputs.api-token }}" ]; then auth="--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi
+        if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
+
+        bash <(curl -Ls https://coverage.codacy.com/get.sh) report $auth $params --partial &&\
+        bash <(curl -Ls https://coverage.codacy.com/get.sh) final $auth
