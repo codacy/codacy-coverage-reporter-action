@@ -27,7 +27,26 @@ runs:
     - name: "Run coverage-reporter"
       shell: bash
       run: |
-        if [ -n "${{ inputs.coverage-reports }}" ]; then export COVERAGE_REPORTS="${{ inputs.coverage-reports }}"; fi
-        ./entrypoint.sh \
-          $(if [ -n "${{ inputs.api-token }}" ]; then echo "--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi) \
-          $(if [ -n "${{ inputs.project-token }}" ]; then echo "--project-token ${{ inputs.project-token }}"; fi)
+        set -eux
+
+        report_list=''
+        # comma separated list of report files
+        if [ -n "${{ inputs.coverage-reports }}" ]; then report_list="${{ inputs.coverage-reports }}"; fi
+
+        IFS=','
+        report_array=$report_list
+        params=''
+        for report in $report_array
+        do
+            if [ ! -z "$report" ]
+            then
+                params="$params -r $report"
+            fi
+        done
+
+        auth=''
+        if [ -n "${{ inputs.api-token }}" ]; then auth="--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi
+        if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
+
+        bash <(curl -Ls https://coverage.codacy.com/get.sh) report $auth $params --partial &&\
+        bash <(curl -Ls https://coverage.codacy.com/get.sh) final $auth
