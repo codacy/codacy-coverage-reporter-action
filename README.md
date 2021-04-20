@@ -36,7 +36,7 @@ jobs:
 
 Change these options in the workflow `.yml` file to meet your GitHub project needs:
 
-| Setting            | Description                                                                            | Default value                         |
+| Setting            | Description                                                                            | Recommended value                         |
 | ------------------ | -------------------------------------------------------------------------------------- | ------------------------------------- |
 | `api-token`        | [Account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens) | `${{ secrets.CODACY_API_TOKEN }}`     |
 | `project-token`    | [Project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens) | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
