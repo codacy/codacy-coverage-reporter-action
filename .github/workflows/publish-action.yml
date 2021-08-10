@@ -1,6 +1,6 @@
 name: publish-action
 
-on: create
+on: push
 
 jobs:
   release:
