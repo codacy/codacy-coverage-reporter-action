@@ -1,11 +1,6 @@
 name: publish-action
 
-on:
-  push:
-    branches:
-      - master
-    tags:
-      - "*"
+on: create
 
 jobs:
   release:
