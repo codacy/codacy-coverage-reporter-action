@@ -1,4 +1,6 @@
-# codacy-coverage-reporter action
+# Codacy Coverage Reporter GitHub Action
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/db5eda4c50b24c008b2c19f1117c9cef)](https://www.codacy.com/gh/codacy/codacy-coverage-reporter-action/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-coverage-reporter-action&amp;utm_campaign=Badge_Grade)
 
 > 🤖 Automated multi-language coverage reporter for Codacy
 
@@ -20,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     name: codacy-coverage-reporter
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
@@ -34,10 +36,10 @@ jobs:
 
 ## Workflow options
 
-Change these options in the workflow `.yml` file to meet your GitHub project needs.
+Change these options in the workflow `.yml` file to meet your GitHub project needs:
 
-| Setting            | Description                                      | Default value                         |
-| ------------------ | ------------------------------------------------ | ------------------------------------- |
-| `api-token`        | An account API token                             | `${{ secrets.CODACY_API_TOKEN }}`     |
-| `project-token`    | The project API token                            | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
-| `coverage-reports` | Optional Comma separated list of reports to send | `''`                                  |
+| Setting            | Description                                                                            | Recommended value                         |
+| ------------------ | -------------------------------------------------------------------------------------- | ------------------------------------- |
+| `api-token`        | [Account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens) | `${{ secrets.CODACY_API_TOKEN }}`     |
+| `project-token`    | [Project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens) | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
+| `coverage-reports` | Optional comma-separated list of reports to send                                       | `''`                                  |

@@ -48,5 +48,5 @@ runs:
         if [ -n "${{ inputs.api-token }}" ]; then auth="--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi
         if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
 
-        bash <(curl -Ls https://coverage.codacy.com/get.sh) report $auth $params --partial &&\
-        bash <(curl -Ls https://coverage.codacy.com/get.sh) final $auth
+        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) report $auth $params --partial &&\
+        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) final $auth
