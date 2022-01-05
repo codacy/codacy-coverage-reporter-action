@@ -16,7 +16,7 @@ inputs:
     required: false
     default: ''
   parser:
-    description: 'Optionally force coverage report parser'
+    description: 'Optionally force using a specific coverage report parser'
     required: false
 runs:
   using: "composite"
