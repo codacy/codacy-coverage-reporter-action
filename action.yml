@@ -50,7 +50,7 @@ runs:
         auth=''
         if [ -n "${{ inputs.api-token }}" ]; then auth="--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi
         if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
-        if [ -n "${{ inputs.parser }}" ]; then force_parser="--force-coverage-parser ${{ inputs.parser }}"; fi
+        if [ -n "${{ inputs.parser }}" ]; then force_parser="--force-coverage-parser ${{ inputs.parser }}"; else force_parser=""; fi
 
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) report $force_parser $auth $params --partial &&\
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) final $auth
