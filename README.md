@@ -38,8 +38,9 @@ jobs:
 
 Change these options in the workflow `.yml` file to meet your GitHub project needs:
 
-| Setting            | Description                                                                            | Recommended value                         |
-| ------------------ | -------------------------------------------------------------------------------------- | ------------------------------------- |
-| `api-token`        | [Account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens) | `${{ secrets.CODACY_API_TOKEN }}`     |
-| `project-token`    | [Project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens) | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
-| `coverage-reports` | Optional comma-separated list of reports to send                                       | `''`                                  |
+| Setting                           | Description                                                                            | Recommended value                     |
+| --------------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------- |
+| `api-token`                       | [Account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens) | `${{ secrets.CODACY_API_TOKEN }}`     |
+| `project-token`                   | [Project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens) | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
+| `coverage-reports`                | Optional comma-separated list of reports to send                                       | `''`                                  |
+| `force-coverage-parser`           | Optionally force using a specific coverage report parser                               | `''`                                  |
