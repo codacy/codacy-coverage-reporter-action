@@ -15,6 +15,9 @@ inputs:
     description: 'Optional comma separated list of coverage reports to send to Codacy'
     required: false
     default: ''
+  language:
+    description: 'Optionally force your project language'
+    required: false
   force-coverage-parser:
     description: 'Optionally force using a specific coverage report parser'
     required: false
@@ -51,6 +54,7 @@ runs:
         if [ -n "${{ inputs.api-token }}" ]; then auth="--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi
         if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
         if [ -n "${{ inputs.force-coverage-parser }}" ]; then force_parser="--force-coverage-parser ${{ inputs.force-coverage-parser }}"; else force_parser=""; fi
+        if [ -n "${{ inputs.language }}" ]; then lang="--language ${{ inputs.language }}"; else lang=""; fi
 
-        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) report $force_parser $auth $params --partial &&\
+        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) report $lang $force_parser $auth $params --partial &&\
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) final $auth
