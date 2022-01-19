@@ -16,7 +16,7 @@ inputs:
     required: false
     default: ''
   language:
-    description: 'Optionally force your project language'
+    description: 'Optionally force associating a language with your coverage report'
     required: false
   force-coverage-parser:
     description: 'Optionally force using a specific coverage report parser'
