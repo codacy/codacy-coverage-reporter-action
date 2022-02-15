@@ -2,7 +2,8 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/db5eda4c50b24c008b2c19f1117c9cef)](https://www.codacy.com/gh/codacy/codacy-coverage-reporter-action/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-coverage-reporter-action&amp;utm_campaign=Badge_Grade)
 
-> 🤖 Automated multi-language coverage reporter for Codacy
+> 🤖 Automated multi-language coverage reporter for [Codacy](https://www.codacy.com/).  
+> For more information about Codacy see our [5 minutes quickstart](https://docs.codacy.com/getting-started/codacy-quickstart/).
 
 This action runs the [codacy-coverage-reporter](https://github.com/codacy/codacy-coverage-reporter) for all commits and pull requests with your Codacy configuration.
 
