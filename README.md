@@ -1,5 +1,6 @@
 # Codacy Coverage Reporter GitHub Action
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/571cd735a47045c399276b8f494565b4)](https://app.codacy.com/gh/codacy/codacy-coverage-reporter-action?utm_source=github.com&utm_medium=referral&utm_content=codacy/codacy-coverage-reporter-action&utm_campaign=Badge_Grade_Settings)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/db5eda4c50b24c008b2c19f1117c9cef)](https://www.codacy.com/gh/codacy/codacy-coverage-reporter-action/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-coverage-reporter-action&amp;utm_campaign=Badge_Grade)
 
 > 🤖 Automated multi-language coverage reporter for [Codacy](https://www.codacy.com/).  
