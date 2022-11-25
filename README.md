@@ -12,7 +12,7 @@ GitHub Action for [uploading coverage reports to Codacy](https://docs.codacy.com
 
 <br/>
 
-# Coverage using your project’s quality settings
+## Coverage using your project’s quality settings
 
 Before setting up Codacy Coverage Reporter GitHub Action you must have tests and use tools to [generate coverage reports](https://docs.codacy.com/coverage-reporter/#generating-coverage) for the source code files in your repository.
 
@@ -33,31 +33,31 @@ To use the GitHub Action with default settings:
 
 2.  [Generate a supported code coverage report](https://docs.codacy.com/coverage-reporter/#adding-coverage-to-your-repository) before each push to your repository.
 
-   3.  Add the following to a file `.github/workflows/codacy-coverage-reporter.yaml` in your repository. Update the sample code with the name of the environment storing the access token and the paths to the report files generated previously:
+3.  Add the following to a file `.github/workflows/codacy-coverage-reporter.yaml` in your repository. Update the sample code with the name of the environment storing the access token and the paths to the report files generated previously:
 
-       ```yaml
-       name: Codacy Coverage Reporter
+     ```yaml
+     name: Codacy Coverage Reporter
 
-       on: ["push"]
+     on: ["push"]
 
-       jobs:
-         codacy-coverage-reporter:
-           runs-on: ubuntu-latest
-           name: codacy-coverage-reporter
-           environment: production # Environment storing the access token
-           steps:
-             - uses: actions/checkout@v2
-             - name: Run codacy-coverage-reporter
-               uses: codacy/codacy-coverage-reporter-action@v1
-               with:
-                 project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                 # or
-                 # api-token: ${{ secrets.CODACY_API_TOKEN }}
-                 coverage-reports: path/to/coverage.xml
-                 # or a comma-separated list for multiple reports
-                 # coverage-reports: package1/coverage.xml, package2/coverage.xml
-                 # language: '' # Optionally force associating a language with your coverage report
-                 # force-coverage-parser: '' # Optionally force using a specific coverage report parser
+     jobs:
+       codacy-coverage-reporter:
+         runs-on: ubuntu-latest
+         name: codacy-coverage-reporter
+         environment: production # Environment storing the access token
+         steps:
+           - uses: actions/checkout@v2
+           - name: Run codacy-coverage-reporter
+             uses: codacy/codacy-coverage-reporter-action@v1
+             with:
+               project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+               # or
+               # api-token: ${{ secrets.CODACY_API_TOKEN }}
+               coverage-reports: path/to/coverage.xml
+               # or a comma-separated list for multiple reports
+               # coverage-reports: package1/coverage.xml, package2/coverage.xml
+               # language: '' # Optionally force associating a language with your coverage report
+               # force-coverage-parser: '' # Optionally force using a specific coverage report parser
 
 4.  Optionally, to have information about the coverage results directly on your pull requests, [enable the GitHub integration](https://docs.codacy.com/repositories-configure/integrations/github-integration/) on Codacy.
 
