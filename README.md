@@ -16,12 +16,6 @@ GitHub Action for [uploading coverage reports to Codacy](https://docs.codacy.com
 
 Before setting up Codacy Coverage Reporter GitHub Action you must have tests and use tools to [generate coverage reports](https://docs.codacy.com/coverage-reporter/#generating-coverage) for the source code files in your repository.
 
-The Codacy Coverage Reporter GitHub Action:
-
--   Uploads coverage report data to Codacy.
--   Prints the coverage report upload status on the console, which is visible on the workflow panel of the GitHub Action.
--   Fails the workflow if code coverage falls below your project’s [quality settings](https://docs.codacy.com/repositories-configure/adjusting-quality-settings/#gates).
-
 To upload coverage to Codacy using the GitHub Action with default settings:
 
 1.  Set up an API token to allow the GitHub Action to authenticate on Codacy:
@@ -33,7 +27,7 @@ To upload coverage to Codacy using the GitHub Action with default settings:
 
 2.  [Generate a supported code coverage report](https://docs.codacy.com/coverage-reporter/#generating-coverage) on each push to your repository.
 
-3.  Add the following to a file `.github/workflows/codacy-coverage-reporter.yaml` in your repository. Update the sample code with the name of the environment storing the access token and the paths to the report files generated previously:
+3.  Add the following to a file `.github/workflows/codacy-coverage-reporter.yaml` in your repository. Update the sample code with the access token and the paths to the report files generated previously:
 
     ```yaml
     name: Codacy Coverage Reporter
@@ -57,5 +51,4 @@ To upload coverage to Codacy using the GitHub Action with default settings:
               # coverage-reports: package1/coverage.xml, package2/coverage.xml
     ```
 
-
-5.  Optionally, to add coverage results to GitHub status checks, [configure a quality gate for coverage](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) and [enable sending status checks](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) on Codacy.
+4.  Optionally, to add coverage results to GitHub status checks, [configure a quality gate for coverage](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) and [enable sending status checks](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) on Codacy.
