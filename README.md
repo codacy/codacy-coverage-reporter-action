@@ -55,8 +55,6 @@ To upload coverage to Codacy using the GitHub Action with default settings:
               coverage-reports: path/to/coverage.xml
               # or a comma-separated list for multiple reports
               # coverage-reports: package1/coverage.xml, package2/coverage.xml
-              # language: '' # Optionally force associating a language with your coverage report
-              # force-coverage-parser: '' # Optionally force using a specific coverage report parser
     ```
 
 4.  Optionally, to have information about the coverage results directly on your pull requests, [enable the GitHub integration](https://docs.codacy.com/repositories-configure/integrations/github-integration/) on Codacy.
