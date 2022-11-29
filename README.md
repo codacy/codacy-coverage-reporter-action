@@ -44,7 +44,6 @@ To use the GitHub Action with default settings:
       codacy-coverage-reporter:
         runs-on: ubuntu-latest
         name: codacy-coverage-reporter
-        environment: production # Environment storing the access token
         steps:
           - uses: actions/checkout@v2
           - name: Run codacy-coverage-reporter
