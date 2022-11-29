@@ -12,7 +12,7 @@ GitHub Action for [uploading coverage reports to Codacy](https://docs.codacy.com
 
 <br/>
 
-## Coverage using your project’s quality settings
+## Uploading coverage to Codacy
 
 Before setting up Codacy Coverage Reporter GitHub Action you must have tests and use tools to [generate coverage reports](https://docs.codacy.com/coverage-reporter/#generating-coverage) for the source code files in your repository.
 
