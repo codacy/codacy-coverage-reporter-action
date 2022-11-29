@@ -22,7 +22,7 @@ The Codacy Coverage Reporter GitHub Action:
 -   Prints the coverage report upload status on the console, which is visible on the workflow panel of the GitHub Action.
 -   Fails the workflow if code coverage falls below your project’s [quality settings](https://docs.codacy.com/repositories-configure/adjusting-quality-settings/#gates).
 
-To use the GitHub Action with default settings:
+To upload coverage to Codacy using the GitHub Action with default settings:
 
 1.  Set up an API token to allow the GitHub Action to authenticate on Codacy:
 
