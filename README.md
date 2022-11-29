@@ -31,7 +31,7 @@ To use the GitHub Action with default settings:
 
     > ⚠️ **Never write API tokens to your configuration files** and keep your API tokens well protected, as they grant owner permissions to your projects on Codacy.
 
-2.  [Generate a supported code coverage report](https://docs.codacy.com/coverage-reporter/#adding-coverage-to-your-repository) before each push to your repository.
+2.  [Generate a supported code coverage report](https://docs.codacy.com/coverage-reporter/#generating-coverage) on each push to your repository.
 
 3.  Add the following to a file `.github/workflows/codacy-coverage-reporter.yaml` in your repository. Update the sample code with the name of the environment storing the access token and the paths to the report files generated previously:
 
