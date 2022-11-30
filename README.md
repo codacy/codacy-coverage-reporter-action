@@ -18,7 +18,7 @@ This GitHub Action [uploads coverage reports to Codacy](https://docs.codacy.com/
 
 Before setting up Codacy Coverage Reporter GitHub Action you must have tests and use tools to [generate coverage reports](https://docs.codacy.com/coverage-reporter/#generating-coverage) for the source code files in your repository.
 
-To upload coverage to Codacy using the GitHub Action with default settings:
+To upload coverage to Codacy using the GitHub Action:
 
 1.  Set up an API token to allow the GitHub Action to authenticate on Codacy:
 
@@ -29,7 +29,7 @@ To upload coverage to Codacy using the GitHub Action with default settings:
 
 2.  [Generate a supported code coverage report](https://docs.codacy.com/coverage-reporter/#generating-coverage) on each push to your repository.
 
-3.  Add the following to a file `.github/workflows/codacy-coverage-reporter.yaml` in your repository. Update the sample code with the access token and the paths to the report files generated previously:
+3.  Add the following to a file `.github/workflows/codacy-coverage-reporter.yaml` in your repository, where `PATH_TO_REPORT` is the path to the coverage report:
 
     ```yaml
     name: Codacy Coverage Reporter
@@ -48,9 +48,9 @@ To upload coverage to Codacy using the GitHub Action with default settings:
               project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
               # or
               # api-token: ${{ secrets.CODACY_API_TOKEN }}
-              coverage-reports: path/to/coverage.xml
+              coverage-reports: <PATH_TO_REPORT>
               # or a comma-separated list for multiple reports
-              # coverage-reports: package1/coverage.xml, package2/coverage.xml
+              # coverage-reports: <PATH_TO_REPORT>, <PATH_TO_REPORT>
     ```
 
 4.  Optionally, to add coverage results to GitHub status checks, [configure a quality gate for coverage](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) and [enable sending status checks](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) on Codacy.
