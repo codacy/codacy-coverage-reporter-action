@@ -2,7 +2,9 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/db5eda4c50b24c008b2c19f1117c9cef)](https://www.codacy.com/gh/codacy/codacy-coverage-reporter-action/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-coverage-reporter-action&amp;utm_campaign=Badge_Grade)
 
-GitHub Action for [uploading coverage reports to Codacy](https://docs.codacy.com/coverage-reporter/#uploading-coverage) on all commits and pull requests, allowing you to track code coverage on your repository and to flag pull requests that cause coverage to drop or add code that isn't tested.
+This GitHub Action [uploads coverage reports to Codacy](https://docs.codacy.com/coverage-reporter/#uploading-coverage) on all commits and pull requests, letting you track code coverage on the Codacy UI. After setting it up, you can optionally [enable status checks on pull requests](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) to avoid adding untested code or decreasing coverage.
+
+![Coverage metrics displayed on Codacy](images/coverage-codacy-ui.png)
 
 [Codacy](https://www.codacy.com/) is an automated code review tool that makes it easy to ensure your team is writing high-quality code by analyzing more than 40 programming languages such as PHP, JavaScript, Python, Java, and Ruby. Codacy allows you to define your own quality rules, code patterns and quality settings you'd like to enforce to prevent issues on your codebase.
 
@@ -52,3 +54,10 @@ To upload coverage to Codacy using the GitHub Action with default settings:
     ```
 
 4.  Optionally, to add coverage results to GitHub status checks, [configure a quality gate for coverage](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) and [enable sending status checks](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) on Codacy.
+
+## Extra configurations
+
+The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports a subset of the parameters available for the command `report`. In addition to `coverage-reports`, `project-token`, and `api-token`, described in the example above, you can set:
+
+* `language`: optionally force associating a language with your coverage report(s).
+* `force-coverage-parser`: optionally force using a specific coverage report parser.
