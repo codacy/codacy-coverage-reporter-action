@@ -18,7 +18,7 @@ This GitHub Action [uploads coverage reports to Codacy](https://docs.codacy.com/
 
 Before setting up Codacy Coverage Reporter GitHub Action you must have tests and use tools to [generate coverage reports](https://docs.codacy.com/coverage-reporter/#generating-coverage) for the source code files in your repository.
 
-To upload coverage to Codacy using the GitHub Action:
+To upload coverage to Codacy using the GitHub Action using default settings:
 
 1.  Set up an API token to allow the GitHub Action to authenticate on Codacy:
 
@@ -55,9 +55,12 @@ To upload coverage to Codacy using the GitHub Action:
 
 4.  Optionally, to add coverage results to GitHub status checks, [configure a quality gate for coverage](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) and [enable sending status checks](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) on Codacy.
 
-## Extra configurations
+## Options
 
-The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports a subset of the parameters available for the command `report`. In addition to `coverage-reports`, `project-token`, and `api-token`, described in the example above, you can set:
+The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports a subset of the options available for the command `report`:
 
-* `language`: optionally force associating a language with your coverage report(s).
-* `force-coverage-parser`: optionally force using a specific coverage report parser.
+- `coverage-reports`: path to the coverage report relative to the repository root, or a comma-separated list for multiple reports
+- `project-token`: [project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens)
+- `api-token`: [account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens), an alternative to `project-token` when setting up multiple repositories
+- `language` (optional): associate a language with your coverage report(s)
+- `force-coverage-parser` (optional): force using a specific coverage report parser
