@@ -7,10 +7,10 @@ branding:
 inputs:
   project-token:
     required: false
-    description: "API project token to retrieve your remote Codacy configuration for the project being analyzed"
+    description: "API project token to authenticate on the Codacy API while uploading the coverage data"
   api-token:
     required: false
-    description: "API account token to retrieve your remote Codacy configuration for the project being analyzed"
+    description: "API account token to authenticate on the Codacy API while uploading the coverage data"
   coverage-reports:
     description: 'Optional comma separated list of coverage reports to send to Codacy'
     required: false
