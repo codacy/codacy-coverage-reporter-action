@@ -59,7 +59,7 @@ To upload coverage to Codacy using the GitHub Action using default settings:
 
 The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports a subset of the options available for the command `report`:
 
-| Setting                 | Description                                                                                                                                                     | Recommended value                     |
+| Option                  | Description                                                                                                                                                     | Recommended value                     |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | `project-token`         | [Project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens)                                                                          | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
 | `api-token`             | [Account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens), an alternative to `project-token` when setting up multiple repositories | `${{ secrets.CODACY_API_TOKEN }}`     |
