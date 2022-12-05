@@ -57,7 +57,7 @@ To upload coverage to Codacy using the GitHub Action using default settings:
 
 ## Options
 
-The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports a subset of the options available for the command `report`:
+The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports the following subset of options available for the command `report`:
 
 | Option                  | Description                                                                                                                                                     | Recommended value                     |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
