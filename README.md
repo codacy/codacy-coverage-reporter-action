@@ -59,8 +59,10 @@ To upload coverage to Codacy using the GitHub Action using default settings:
 
 The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports a subset of the options available for the command `report`:
 
-- `coverage-reports`: path to the coverage report relative to the repository root, or a comma-separated list for multiple reports
-- `project-token`: [project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens)
-- `api-token`: [account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens), an alternative to `project-token` when setting up multiple repositories
-- `language` (optional): associate a language with your coverage report(s)
-- `force-coverage-parser` (optional): force using a specific coverage report parser
+| Setting                 | Description                                                                                                                                                     | Recommended value                     |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| `project-token`         | [Project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens)                                                                          | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
+| `api-token`             | [Account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens), an alternative to `project-token` when setting up multiple repositories | `${{ secrets.CODACY_API_TOKEN }}`     |
+| `coverage-reports`      | Optional path to the coverage report relative to the repository root, or a comma-separated list for multiple reports                                            | `''`                                  |
+| `language`              | Optionally associate a language with your coverage report(s)                                                                                                    | `''`                                  |
+| `force-coverage-parser` | Optionally force using a specific coverage report parser                                                                                                        | `''`                                  |
