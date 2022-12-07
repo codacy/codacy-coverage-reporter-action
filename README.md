@@ -55,11 +55,11 @@ To upload coverage to Codacy using the GitHub Action using default settings:
 
 4.  Optionally, to add coverage results to GitHub status checks, [configure a quality gate for coverage](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) and [enable sending status checks](https://docs.codacy.com/repositories-configure/integrations/github-integration/#status-checks) on Codacy.
 
-## Options
+## Parameters
 
-The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports the following subset of options available for the command `report`:
+The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter CLI](https://github.com/codacy/codacy-coverage-reporter#codacy-coverage-reporter) and supports the following subset of parameters available for the command `report`:
 
-| Option                  | Description                                                                                                                                                     | Recommended value                     |
+| Parameter               | Description                                                                                                                                                     | Recommended value                     |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | `project-token`         | [Project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens)                                                                          | `${{ secrets.CODACY_PROJECT_TOKEN }}` |
 | `api-token`             | [Account API token](https://docs.codacy.com/codacy-api/api-tokens/#account-api-tokens), an alternative to `project-token` when setting up multiple repositories | `${{ secrets.CODACY_API_TOKEN }}`     |
