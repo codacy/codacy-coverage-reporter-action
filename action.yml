@@ -12,7 +12,7 @@ inputs:
     required: false
     description: "API account token to authenticate on the Codacy API while uploading the coverage data"
   coverage-reports:
-    description: 'Optional comma separated list of coverage reports to send to Codacy'
+    description: 'Coverage report target. Supports Globs (e.g. `coverage/**/*.{xml,lcov}`)'
     required: false
     default: ''
   language:
@@ -35,26 +35,11 @@ runs:
       run: |
         set -eux
 
-        report_list=''
-        # comma separated list of report files
-        if [ -n "${{ inputs.coverage-reports }}" ]; then report_list="${{ inputs.coverage-reports }}"; fi
-
-        IFS=','
-        report_array=$report_list
-        params=''
-        for report in $report_array
-        do
-            if [ ! -z "$report" ]
-            then
-                params="$params -r $report"
-            fi
-        done
-
         auth=''
         if [ -n "${{ inputs.api-token }}" ]; then auth="--api-token ${{ inputs.api-token }} --organization-provider $ORGANIZATION_PROVIDER --username $OWNER_NAME --project-name $REPOSITORY_NAME"; fi
         if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
         if [ -n "${{ inputs.force-coverage-parser }}" ]; then force_parser="--force-coverage-parser ${{ inputs.force-coverage-parser }}"; else force_parser=""; fi
         if [ -n "${{ inputs.language }}" ]; then lang="--language ${{ inputs.language }}"; else lang=""; fi
 
-        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) report $lang $force_parser $auth $params --partial &&\
+        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) report $lang $force_parser $auth -r "${{ inputs.coverage-reports }}" --partial &&\
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) final $auth
