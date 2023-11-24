@@ -8,6 +8,9 @@ This GitHub Action [uploads coverage reports to Codacy](https://docs.codacy.com/
 
 [Codacy](https://www.codacy.com/) is an automated code review tool that makes it easy to ensure your team is writing high-quality code by analyzing more than 40 programming languages such as PHP, JavaScript, Python, Java, and Ruby. Codacy allows you to define your own quality rules, code patterns and quality settings you'd like to enforce to prevent issues on your codebase.
 
+[Learn more about Codacy Coverage](https://blog.codacy.com/introducing-codacy-coverage)  
+[Why do you need to measure code coverage?](https://blog.codacy.com/why-do-you-need-to-measure-code-coverage)
+
 <br/>
 
 <a href="https://www.codacy.com" target="_blank"><img src="images/codacy-logo.svg" alt="Codacy" width="400"/></a>
