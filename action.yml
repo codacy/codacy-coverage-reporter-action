@@ -33,7 +33,7 @@ runs:
         echo "ORGANIZATION_PROVIDER=$(if [[ $GITHUB_SERVER_URL == "https://github.com" ]]; then echo "gh"; else echo "ghe"; fi)" >> $GITHUB_ENV
         echo "OWNER_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 1)" >> $GITHUB_ENV
         echo "REPOSITORY_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)" >> $GITHUB_ENV
-        echo "CODACY_REPORTER_VERSION=$(if [ -n "${{ inputs.coverage-reporter-version }}" ]; then COVERAGE_REPORTER_VERSION="${{ inputs.coverage-reporter-version }}"; else COVERAGE_REPORTER_VERSION="master"; fi)" >> $GITHUB_ENV
+        echo "COVERAGE_REPORTER_VERSION=$(if [ -n "${{ inputs.coverage-reporter-version }}" ]; then COVERAGE_REPORTER_VERSION="${{ inputs.coverage-reporter-version }}"; else COVERAGE_REPORTER_VERSION="master"; fi)" >> $GITHUB_ENV
     - name: "Run coverage-reporter"
       shell: bash
       run: |
