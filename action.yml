@@ -61,5 +61,7 @@ runs:
         if [ -n "${{ inputs.language }}" ]; then lang="--language ${{ inputs.language }}"; else lang=""; fi
          
         echo "$CODACY_REPORTER_VERSION" 
+        echo "$ORGANIZATION_PROVIDER"
+        
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/$CODACY_REPORTER_VERSION/get.sh) report $lang $force_parser $auth $params --partial &&\
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/$CODACY_REPORTER_VERSION/get.sh) final $auth
