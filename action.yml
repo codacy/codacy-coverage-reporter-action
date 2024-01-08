@@ -59,7 +59,6 @@ runs:
         if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
         if [ -n "${{ inputs.force-coverage-parser }}" ]; then force_parser="--force-coverage-parser ${{ inputs.force-coverage-parser }}"; else force_parser=""; fi
         if [ -n "${{ inputs.language }}" ]; then lang="--language ${{ inputs.language }}"; else lang=""; fi
-        if [ -n "${{ inputs.coverage-reporter-version }}" ]; then CODACY_REPORTER_VERSION="${{ inputs.coverage-reporter-version }}"; else CODACY_REPORTER_VERSION="master"; fi
 
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/$CODACY_REPORTER_VERSION/get.sh) report $lang $force_parser $auth $params --partial &&\
         bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/$CODACY_REPORTER_VERSION/get.sh) final $auth
