@@ -12,4 +12,3 @@ jobs:
         uses: ./
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reporter-version: 13.13.15
