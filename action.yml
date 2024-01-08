@@ -21,6 +21,9 @@ inputs:
   force-coverage-parser:
     description: 'Optionally force using a specific coverage report parser'
     required: false
+  coverage-reporter-version:
+    description: 'Optionally force using a specific coverage reporter version'
+    required: false
 runs:
   using: "composite"
   steps:
