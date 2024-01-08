@@ -21,6 +21,9 @@ inputs:
   force-coverage-parser:
     description: 'Optionally force using a specific coverage report parser'
     required: false
+  coverage-reporter-version:
+    description: 'Optionally force using a specific coverage reporter version'
+    required: false
 runs:
   using: "composite"
   steps:
@@ -30,6 +33,8 @@ runs:
         echo "ORGANIZATION_PROVIDER=$(if [[ $GITHUB_SERVER_URL == "https://github.com" ]]; then echo "gh"; else echo "ghe"; fi)" >> $GITHUB_ENV
         echo "OWNER_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 1)" >> $GITHUB_ENV
         echo "REPOSITORY_NAME=$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)" >> $GITHUB_ENV
+        echo "CODACY_REPORTER_VERSION=$(if [ -n "${{ inputs.coverage-reporter-version }}" ]; then echo "${{ inputs.coverage-reporter-version }}"; fi)" >> $GITHUB_ENV
+
     - name: "Run coverage-reporter"
       shell: bash
       run: |
@@ -56,5 +61,5 @@ runs:
         if [ -n "${{ inputs.force-coverage-parser }}" ]; then force_parser="--force-coverage-parser ${{ inputs.force-coverage-parser }}"; else force_parser=""; fi
         if [ -n "${{ inputs.language }}" ]; then lang="--language ${{ inputs.language }}"; else lang=""; fi
 
-        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) report $lang $force_parser $auth $params --partial &&\
-        bash <(curl -Ls https://raw.githubusercontent.com/codacy/codacy-coverage-reporter/master/get.sh) final $auth
+        bash <(curl -Ls https://coverage.codacy.com/get.sh) report $lang $force_parser $auth $params --partial &&\
+        bash <(curl -Ls https://coverage.codacy.com/get.sh) final $auth
