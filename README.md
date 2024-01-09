@@ -69,5 +69,4 @@ The Codacy GitHub Action is a wrapper for running the [Codacy Coverage Reporter 
 | `coverage-reports`      | Optional path to the coverage report relative to the repository root, or a comma-separated list for multiple reports                                            | `''`                                  |
 | `language`              | Optionally associate a language with your coverage report(s)                                                                                                    | `''`                                  |
 | `force-coverage-parser` | Optionally force using a specific coverage report parser                                                                                                        | `''`                                  |
-| `coverage-reporter-version` | Optionally force using a specific coverage reporter version                                                                                                 | 
-`''`       
+| `coverage-reporter-version` | Optionally force using a specific coverage reporter version                                                                                                 | `''`       
