@@ -38,6 +38,8 @@ runs:
     - name: "Run coverage-reporter"
       shell: bash
       run: |
+        echo "Welcome to Coverage-Reporter-Action"
+        
         set -eux
 
         report_list=''
