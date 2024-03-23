@@ -68,4 +68,4 @@ runs:
         if [ -n '${{ inputs.force-commit-sha }}' ]; then force_commit="--commit-uuid '${{ inputs.force-commit-sha }}'"; else force_commit=""; fi
 
         bash <(curl -Ls https://coverage.codacy.com/get.sh) report $lang $force_parser $force_commit $auth $params --partial &&\
-        bash <(curl -Ls https://coverage.codacy.com/get.sh) final $auth
+        bash <(curl -Ls https://coverage.codacy.com/get.sh) final $force_commit $auth
