@@ -65,7 +65,7 @@ runs:
         if [ -n "${{ inputs.project-token }}" ]; then auth="--project-token ${{ inputs.project-token }}"; fi
         if [ -n "${{ inputs.force-coverage-parser }}" ]; then force_parser="--force-coverage-parser ${{ inputs.force-coverage-parser }}"; else force_parser=""; fi
         if [ -n "${{ inputs.language }}" ]; then lang="--language ${{ inputs.language }}"; else lang=""; fi
-        if [ -n '${{ inputs.force-commit-sha }}' ]; then force_commit="--commit-uuid '${{ inputs.force-commit-sha }}'"; else force_commit=""; fi
+        if [ -n "${{ inputs.force-commit-sha }}" ]; then force_commit="--commit-uuid ${{ inputs.force-commit-sha }}"; else force_commit=""; fi
 
         bash <(curl -Ls https://coverage.codacy.com/get.sh) report $lang $force_parser $force_commit $auth $params --partial &&\
         bash <(curl -Ls https://coverage.codacy.com/get.sh) final $force_commit $auth
