@@ -46,7 +46,7 @@ To upload coverage to Codacy using the GitHub Action using default settings:
         steps:
           - uses: actions/checkout@v2
           - name: Run codacy-coverage-reporter
-            uses: codacy/codacy-coverage-reporter-action@v1
+            uses: codacy/codacy-coverage-reporter-action@v1.3.0
             with:
               project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
               # or
