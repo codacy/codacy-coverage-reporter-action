@@ -24,6 +24,9 @@ inputs:
   coverage-reporter-version:
     description: 'Optionally force using a specific coverage reporter version'
     required: false
+  working-directory:
+    description: 'Optionally change working directory'
+    required: false
 runs:
   using: "composite"
   steps:
@@ -41,6 +44,8 @@ runs:
         echo "Welcome to Coverage-Reporter-Action"
         
         set -eux
+
+        if [ -n "${{ inputs.working-directory }}" ]; then cd "${{ inputs.working-directory }}" ; fi
 
         report_list=''
         # comma separated list of report files
